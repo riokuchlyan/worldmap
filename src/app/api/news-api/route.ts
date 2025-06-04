@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(request: NextRequest) {
-    const { country } = await request.json();
+export async function GET(request: NextRequest) {
+    const country = request.nextUrl.searchParams.get('country');
 
     if (!country) {
         return NextResponse.json({ error: 'Country parameter is required' }, { status: 400 });
